@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Calidad | IES Angel Sanz Briz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="mainNav" class="navbar">
+        <a id="navSearchBtn" onclick="showSearch(); return false;" href="#" class="navSearch">
+            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
+            <input id="nav_search_extension" type="search" placeholder="Buscar...">
+        </a>
+        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser">
+            <section class="navRank">
+                <span class="rankBadge" id="userRank">Miembro</span>
+                <div class="rankSeparator"></div>
+            </section>
+            <img src="svg/user_icon.svg" class="userButton" alt="Usuario">
+            <menu id="userMenu" class="userMenu">
+                <li><a href="profile.html" class="userMenuItem">Perfil</a></li>
+                <li><a href="settings.html" class="userMenuItem">Ajustes</a></li>
+                <li><a href="index.html" class="userMenuItem">Cerrar sesión</a></li>
+            </menu>
+        </a>
+    </nav>
+
+    <main id="mainContent" class="profileContainer">
+        <a href="main.html" class="backLink">← Volver a documentos</a>
+
+        <section class="profileHeader">
+            <h1>Mi Perfil</h1>
+        </section>
+
+        <section class="profileCard">
+            <section class="profileAvatar">👤</section>
+
+            <section class="profileSection">
+                <h3>Información Personal</h3>
+                <div class="profileField">
+                    <label>Nombre:</label>
+                    <value></value>
+                </div>
+                <div class="profileField">
+                    <label>Email:</label>
+                    <value></value>
+                </div>
+                <div class="profileField">
+                    <label>Teléfono:</label>
+                    <value></value>
+                </div>
+                <div class="profileField">
+                    <label>Departamento:</label>
+                    <value></value>
+                </div>
+            </section>
+
+            <section class="profileSection">
+                <h3>Rol</h3>
+                <div class="profileField">
+                    <label>Rol actual:</label>
+                    <value></value>
+                </div>
+            </section>
+
+            <section class="profileSection">
+                <h3>Actividad</h3>
+                <div class="profileField">
+                    <label>Último acceso:</label>
+                    <value></value>
+                </div>
+                <div class="profileField">
+                    <label>Documentos descargados:</label>
+                    <value></value>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer id="pageFooter" class="footer">
+        <span id="copyright">©Quality+</span>
+        <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net" id="contactLink">Contacto</a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

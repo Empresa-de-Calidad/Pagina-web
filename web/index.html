@@ -1,36 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Calidad | IES Angel Sanz Briz</title>
-        <script src="js/script.js"></script>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <nav>
-            <a onclick="showSearch(); return false;" href="#" class="navSearch">
-                <img src="svg/search_icon.svg" class="searchButton" width="32px">
-                <input id="nav_search_extension" type="search"/>
-            </a>
-            <a onclick="toggleUserMenu(); return false;" href="#" class="navUser" id="navUserButton">
-                <img src="svg/user_icon.svg" class="userButton" width="32px">
-                <div class="userMenu" id="userMenu">
-                    <a href="#" class="userMenuItem">Perfil</a>
-                    <a href="#" class="userMenuItem">Ajustes</a>
-                    <a href="#" class="userMenuItem">Cerrar sesión</a>
-                </div>
-            </a>
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calidad | IES Angel Sanz Briz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="mainNav" class="navbar">
+        <a id="navSearchBtn" onclick="showSearch(); return false;" href="#" class="navSearch">
+            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
+            <input id="nav_search_extension" type="search" placeholder="Buscar...">
+        </a>
+        <a href="#" class="loginLink" style="margin-left: auto;">Iniciar Sesión</a>
+    </nav>
 
-        <main id="mainPage" class="mainPage">
+    <main id="mainContent" class="mainPage">
+        <section id="loginContainer">
+            <section id="logoSection">
+                <img src="src/logo.png" alt="Logo Quality+">
+            </section>
 
-        </main>
+            <form id="loginForm" class="authForm">
+                <h1>Iniciar Sesión</h1>
+                <fieldset id="credentialsGroup" class="formGroup">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" name="username" id="username" required>
+                </fieldset>
+                <fieldset id="passwordGroup" class="formGroup">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" id="password" required>
+                </fieldset>
+                <button type="submit" id="loginSubmit" class="submitBtn">Iniciar Sesión</button>
+            </form>
 
-        <footer>
-            <span>©Quality+</span>
-            <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net">Contacto</a>
-        </footer>
-    </body>
+            <nav id="loginOptions" class="authOptions">
+                <a href="#" id="forgotPasswordLink" class="authOptionLink">He olvidado la contraseña</a>
+                <button type="button" id="guestBtn" class="authOptionBtn secondary">Iniciar sesión como invitado</button>
+            </nav>
+        </section>
+    </main>
+
+    <footer id="pageFooter" class="footer">
+        <span id="copyright">©Quality+</span>
+        <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net" id="contactLink">Contacto</a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
 </html>
  

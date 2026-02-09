@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - Calidad | IES Angel Sanz Briz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a onclick="showSearch(); return false;" href="#" class="navSearch">
+            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
+            <input id="nav_search_extension" type="search" placeholder="Buscar...">
+        </a>
+        <a href="index.html" id="loginLink" class="navUser loginLink" style="margin-left: auto;">
+            <span>Iniciar sesión</span>
+        </a>
+    </nav>
+
+    <main id="mainContent" class="mainContent">
+        <section id="welcomeSection" class="welcomeSection">
+            <img src="src/logo.png" alt="Logo Quality+" width="64">
+            <h2>Bienvenido a Quality+</h2>
+            <p>Algunos documentos están disponibles para invitados</p>
+        </section>
+
+        <section class="dashboard" style="position: relative;">
+            <article class="docCard" style="position: relative; opacity: 0.6;">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px; cursor: not-allowed;">
+                    <img src="svg/block_icon.svg" alt="Bloqueado" style="width: 48px; height: 48px; filter: brightness(0) invert(1);">
+                </div>
+                <h3>Documento 1</h3>
+                <p>Descripción del documento</p>
+                <div class="docMeta">
+                    <span>Autor desconocido</span>
+                    <span>N/A</span>
+                </div>
+            </article>
+
+            <article class="docCard" style="position: relative; opacity: 0.6;">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px; cursor: not-allowed;">
+                    <img src="svg/block_icon.svg" alt="Bloqueado" style="width: 48px; height: 48px; filter: brightness(0) invert(1);">
+                </div>
+                <h3>Documento 2</h3>
+                <p>Descripción del documento</p>
+                <div class="docMeta">
+                    <span>Autor desconocido</span>
+                    <span>N/A</span>
+                </div>
+            </article>
+
+            <article class="docCard" style="position: relative; opacity: 0.6;">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px; cursor: not-allowed;">
+                    <img src="svg/block_icon.svg" alt="Bloqueado" style="width: 48px; height: 48px; filter: brightness(0) invert(1);">
+                </div>
+                <h3>Documento 3</h3>
+                <p>Descripción del documento</p>
+                <div class="docMeta">
+                    <span>Autor desconocido</span>
+                    <span>N/A</span>
+                </div>
+            </article>
+        </section>
+
+        <section id="noAccessSection" class="noAccessMessage">
+            <h3>Inicia sesión para acceder</h3>
+            <p>Para acceder a los documentos bloqueados y funcionalidades completas, por favor inicia sesión con tu cuenta.</p>
+            <a href="index.html" class="authOptionBtn" style="margin-top: 1rem;">Iniciar Sesión</a>
+        </section>
+    </main>
+
+    <footer>
+        <span>©Quality+</span>
+        <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net">Contacto</a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

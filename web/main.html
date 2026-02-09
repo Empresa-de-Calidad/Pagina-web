@@ -1,21 +1,137 @@
-<section>
-    <form action="">
-        <table>
-            <tr>
-                <td>Nombre de Usuario</td>
-                <td><input type="text" name="username" id="username"></td>
-            </tr>
-            <tr>
-                <td>Contraseña</td>
-                <td><input type="password" name="password" id="password"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="submit" value="Iniciar Sesión">
-                </td>
-            </tr>
-        </table>
-    </form>
-    <a href="" class="olvidado">He olvidado la contraseña</a>
-    <a href="register.html" class="registrarse">Registrarse</a>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - Calidad | IES Angel Sanz Briz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a onclick="showSearch(); return false;" href="#" class="navSearch">
+            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
+            <input id="nav_search_extension" type="search" placeholder="Buscar...">
+        </a>
+        <a onclick="toggleUserMenu(); return false;" href="#" class="navUser" id="navUserButton">
+            <section class="navRank">
+                <span class="rankBadge" id="userRank">Miembro</span>
+                <div class="rankSeparator"></div>
+            </section>
+            <img src="svg/user_icon.svg" class="userButton" alt="Usuario">
+            <div class="userMenu" id="userMenu">
+                <a href="profile.html" class="userMenuItem">Perfil</a>
+                <a href="settings.html" class="userMenuItem">Ajustes</a>
+                <a href="index.html" class="userMenuItem">Cerrar sesión</a>
+            </div>
+        </a>
+    </nav>
+
+    <main id="mainContent" class="mainContent">
+        <section id="welcomeSection" class="welcomeSection">
+            <img src="src/logo.png" alt="Logo Quality+" width="64">
+            <h2>Bienvenido a Quality+</h2>
+            <p>Panel de control para la gestión de documentos de calidad</p>
+        </section>
+
+        <section id="searchContainer" class="searchContainer">
+            <form id="searchForm">
+                <input type="search" id="search" name="query" placeholder="Busca un documento...">
+                <button type="submit">Buscar</button>
+                <button type="button" id="filterBtn" class="filterBtn">Filtros</button>
+                <button type="button" id="clearFiltersBtn" class="filterBtn" onclick="clearAllFilters()" style="background-color: #999;">Limpiar filtros</button>
+            </form>
+        </section>
+
+        <section id="docsContainer" class="dashboard">
+            <article id="docCard-1" class="docCard" data-filter="filtro1">
+                <h3>Manual de Calidad</h3>
+                <p>Documento principal de políticas de calidad</p>
+                <footer id="docMeta-1" class="docMeta">
+                    <span>PDF</span>
+                    <span>2.5 MB</span>
+                    <span>Hace 3 días</span>
+                </footer>
+            </article>
+
+            <article id="docCard-2" class="docCard" data-filter="filtro1">
+                <h3>Procedimientos</h3>
+                <p>Procedimientos operacionales estándar</p>
+                <footer id="docMeta-2" class="docMeta">
+                    <span>DOC</span>
+                    <span>1.8 MB</span>
+                    <span>Hace 1 semana</span>
+                </footer>
+            </article>
+
+            <article id="docCard-3" class="docCard" data-filter="filtro2">
+                <h3>Auditorías</h3>
+                <p>Resultados de auditorías internas</p>
+                <footer id="docMeta-3" class="docMeta">
+                    <span>XLS</span>
+                    <span>0.9 MB</span>
+                    <span>Hace 5 días</span>
+                </footer>
+            </article>
+
+            <article id="docCard-4" class="docCard" data-filter="filtro2">
+                <h3>Certificaciones</h3>
+                <p>Certificaciones vigentes de la empresa</p>
+                <footer id="docMeta-4" class="docMeta">
+                    <span>PDF</span>
+                    <span>3.2 MB</span>
+                    <span>Hace 2 semanas</span>
+                </footer>
+            </article>
+
+            <article id="docCard-5" class="docCard" data-filter="filtro3">
+                <h3>Mejoras</h3>
+                <p>Plan de mejora continua</p>
+                <footer id="docMeta-5" class="docMeta">
+                    <span>DOC</span>
+                    <span>1.5 MB</span>
+                    <span>Hace 10 días</span>
+                </footer>
+            </article>
+
+            <article id="docCard-6" class="docCard" data-filter="filtro3">
+                <h3>Indicadores</h3>
+                <p>KPIs y métricas de desempeño</p>
+                <footer id="docMeta-6" class="docMeta">
+                    <span>XLS</span>
+                    <span>0.7 MB</span>
+                    <span>Hoy</span>
+                </footer>
+            </article>
+        </section>
+
+        <section id="filterPanel" class="filterPanel">
+            <div class="filterContent">
+                <h3>Filtros</h3>
+                <div class="filterOption">
+                    <input type="checkbox" id="filter-filtro1" name="filter" value="filtro1">
+                    <label for="filter-filtro1">Filtro 1</label>
+                </div>
+                <div class="filterOption">
+                    <input type="checkbox" id="filter-filtro2" name="filter" value="filtro2">
+                    <label for="filter-filtro2">Filtro 2</label>
+                </div>
+                <div class="filterOption">
+                    <input type="checkbox" id="filter-filtro3" name="filter" value="filtro3">
+                    <label for="filter-filtro3">Filtro 3</label>
+                </div>
+                <div class="filterButtons">
+                    <button class="applyBtn" onclick="applyFilters()">Aplicar</button>
+                    <button class="closeBtn" onclick="closeFilters()">Cerrar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span>©Quality+</span>
+        <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net">Contacto</a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
