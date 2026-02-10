@@ -27,13 +27,33 @@
     </nav>
 
     <main id="mainContent" class="documentContainer">
-        <section id="documentHeader" class="documentHeader">
-            <a href="main.html" class="documentBack">Atrás</a>
-            <span style="flex: 1;"></span>
-        </section>
-
         <section id="documentContent" class="documentContent">
+            <section id="documentMain" class="documentMain">
+                <section id="documentNameSection" class="documentNameSection">
+                    <h2 id="docName">Documento</h2>
+                    <a href="main.html" class="documentBackRight">Atrás</a>
+                </section>
+
+                <section id="documentViewer" class="documentViewer">
+                    <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="100%">
+                </section>
+
+                <footer id="documentFooter" class="documentFooter">
+                    <button class="navButton" onclick="previousPage()">←</button>
+                    <span class="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
+                    <button class="navButton" onclick="nextPage()">→</button>
+                </footer>
+            </section>
+
             <aside id="documentSidebar" class="documentSidebar">
+                <section id="documentActions" class="documentActionsVertical">
+                    <button class="actionBtn btnPDF" onclick="downloadPDF()">PDF</button>
+                    <button class="actionBtn btnWord" onclick="downloadWord()">Word</button>
+                    <button class="actionBtn btnUpload" onclick="uploadChanges()">Subir Cambios</button>
+                    <button class="actionBtn btnDelete" onclick="deleteDocument()">Borrar Documento</button>
+                    <button class="actionBtn btnAccess" onclick="manageAccess()">Gestionar Acceso</button>
+                </section>
+
                 <section class="changelogDropdown">
                     <div class="dropdownHeader" onclick="toggleChangelog()">
                         Registro de cambios
@@ -53,40 +73,6 @@
                     </section>
                 </section>
             </aside>
-
-            <section id="documentMain" class="documentMain">
-                <section id="documentNameSection" class="documentNameSection">
-                    <h2 id="docName">Manual de Calidad</h2>
-                    <p class="version">Versión <span id="docVersion">1.0</span></p>
-                </section>
-
-                <section id="documentViewer" class="documentViewer">
-                    <div class="viewerPlaceholder">
-                        <p>El previsualizador de documentos se mostrará aquí</p>
-                    </div>
-                </section>
-
-                <footer id="documentFooter" class="documentFooter">
-                    <button class="navButton" onclick="previousPage()">←</button>
-                    <span class="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">10</span></span>
-                    <button class="navButton" onclick="nextPage()">→</button>
-                </footer>
-            </section>
-
-            <section id="documentActions" class="documentActions">
-                <button class="actionBtn btnPDF" onclick="downloadPDF()">PDF</button>
-                <button class="actionBtn btnWord" onclick="downloadWord()">Word</button>
-                <button class="actionBtn btnUpload" onclick="uploadChanges()">Subir Cambios</button>
-                <button class="actionBtn btnDelete" onclick="deleteDocument()">Borrar Documento</button>
-                <button class="actionBtn btnAccess" onclick="manageAccess()">Gestionar Acceso</button>
-            </section>
-        </section>
-    </main>
-
-    <footer id="pageFooter" class="footer">
-        <span id="copyright">©Quality+</span>
-        <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net" id="contactLink">Contacto</a>
-    </footer>
 
     <script src="js/script.js"></script>
 </body>

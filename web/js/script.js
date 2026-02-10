@@ -233,40 +233,88 @@ function outsideClickListener(e) {
 
 // Document page functions
 let currentPage = 1;
-const totalPages = 10;
+let totalPages = 1;
+let selectedDocumentName = null;
+
+// Mapeo de nombres de documentos a rutas de PDF
+const documentMap = {
+    'PROYECTO EDUCATIVO DE CENTRO IES ÁNGEL SANZ BRIZ (Borrador)': './documents/PROYECTO%20EDUCATIVO%20DE%20CENTRO%20IES%20%C3%81NGEL%20SANZ%20BRIZ%20(Borrador).pdf',
+    'Reglamento de Régimen Interior': './documents/Reglamento%20de%20R%C3%A9gimen%20Interior.pdf'
+};
 
 window.addEventListener('DOMContentLoaded', function() {
     // Si estamos en document.html, cargar el nombre del documento
     if (window.location.pathname.includes('document.html')) {
         const docName = sessionStorage.getItem('selectedDocument');
         if (docName) {
+            selectedDocumentName = docName;
             document.getElementById('docName').textContent = docName;
-            document.getElementById('viewerDocName').textContent = docName;
+            loadPDF(docName);
         }
-        updatePageInfo();
     }
 });
 
+function loadPDF(docName) {
+    const pdfUrl = documentMap[docName];
+    if (!pdfUrl) {
+        console.error('Documento no encontrado:', docName);
+        alert('Documento no encontrado');
+        return;
+    }
+
+    const pdfViewer = document.getElementById('pdfViewer');
+    pdfViewer.src = pdfUrl;
+}
+
 function previousPage() {
+    // Navegar a la página anterior o ir a la última si estamos en la primera
     if (currentPage > 1) {
         currentPage--;
-        updatePageInfo();
+    } else {
+        // Si estamos en la primera página, ir a la última (comportamiento cíclico)
+        currentPage = totalPages;
     }
+    updatePageInfo();
+    scrollToTop();
 }
 
 function nextPage() {
+    // Navegar a la siguiente página o volver a la primera si estamos en la última (cíclico)
     if (currentPage < totalPages) {
         currentPage++;
-        updatePageInfo();
+    } else {
+        // Si estamos en la última página, volver a la primera
+        currentPage = 1;
     }
+    updatePageInfo();
+    scrollToTop();
 }
 
 function updatePageInfo() {
     document.getElementById('currentPage').textContent = currentPage;
 }
 
+function scrollToTop() {
+    const viewer = document.getElementById('documentViewer');
+    if (viewer) {
+        viewer.scrollTop = 0;
+    }
+}
+
 function downloadPDF() {
-    alert('Descargando documento en PDF...');
+    if (!selectedDocumentName) {
+        alert('No hay documento seleccionado');
+        return;
+    }
+    const pdfUrl = documentMap[selectedDocumentName];
+    if (pdfUrl) {
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = selectedDocumentName + '.pdf';
+        link.click();
+    } else {
+        alert('No se puede descargar este documento');
+    }
 }
 
 function downloadWord() {
