@@ -997,23 +997,25 @@ main {
     margin: 0;
 }
 
-.documentBackRight {
-    display: inline-flex;
+.documentBackButton {
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
     color: white;
     background: linear-gradient(135deg, #38659b 0%, #2d5073 100%);
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    padding: 0.75rem;
     border-radius: 4px;
     transition: all 0.3s ease;
+    width: 100%;
+    border: none;
 }
 
-.documentBackRight:hover {
-    transform: translateX(4px);
+.documentBackButton:hover {
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(56, 101, 155, 0.4);
 }
 
@@ -1102,7 +1104,7 @@ main {
 }
 
 .btnUpload {
-    background-color: #99ff99;
+    background-color: #4da64d;
 }
 
 .btnDelete {
@@ -1267,26 +1269,6 @@ main {
 
 .actionBtn:hover {
     opacity: 0.9;
-}
-
-.btnPDF {
-    background-color: #ff9999;
-}
-
-.btnWord {
-    background-color: #99ccff;
-}
-
-.btnUpload {
-    background-color: #99ff99;
-}
-
-.btnDelete {
-    background-color: #cc99ff;
-}
-
-.btnAccess {
-    background-color: #ffcc99;
 }
 
 .documentFooter {

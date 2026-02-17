@@ -28,24 +28,9 @@
 
     <main id="mainContent" class="documentContainer">
         <section id="documentContent" class="documentContent">
-            <section id="documentMain" class="documentMain">
-                <section id="documentNameSection" class="documentNameSection">
-                    <h2 id="docName">Documento</h2>
-                    <a href="main.html" class="documentBackRight">Atrás</a>
-                </section>
-
-                <section id="documentViewer" class="documentViewer">
-                    <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="100%">
-                </section>
-
-                <footer id="documentFooter" class="documentFooter">
-                    <button class="navButton" onclick="previousPage()">←</button>
-                    <span class="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
-                    <button class="navButton" onclick="nextPage()">→</button>
-                </footer>
-            </section>
-
             <aside id="documentSidebar" class="documentSidebar">
+                <a href="main.html" class="documentBackButton">← Atrás</a>
+
                 <section id="documentActions" class="documentActionsVertical">
                     <button class="actionBtn btnPDF" onclick="downloadPDF()">PDF</button>
                     <button class="actionBtn btnWord" onclick="downloadWord()">Word</button>
@@ -73,6 +58,29 @@
                     </section>
                 </section>
             </aside>
+
+            <section id="documentMain" class="documentMain">
+                <section id="documentNameSection" class="documentNameSection">
+                    <h2 id="docName">Documento</h2>
+                </section>
+
+                <section id="documentViewer" class="documentViewer">
+                    <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="100%">
+                </section>
+
+                <footer id="documentFooter" class="documentFooter">
+                    <button class="navButton" onclick="previousPage()">←</button>
+                    <span class="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
+                    <button class="navButton" onclick="nextPage()">→</button>
+                </footer>
+            </section>
+        </section>
+    </main>
+
+    <footer id="pageFooter" class="footer">
+        <span id="copyright">©Quality+</span>
+        <a href="mailto:pr.leon.larrondo@iesangelsanzbriz.net" id="contactLink">Contacto</a>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

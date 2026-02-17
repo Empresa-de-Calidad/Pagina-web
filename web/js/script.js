@@ -318,7 +318,23 @@ function downloadPDF() {
 }
 
 function downloadWord() {
-    alert('Descargando documento en Word...');
+    if (!selectedDocumentName) {
+        alert('No hay documento seleccionado');
+        return;
+    }
+    // Por ahora, descargamos el PDF pero como archivo Word
+    // Una solución real requeriría convertir PDF a DOCX en el servidor
+    const pdfUrl = documentMap[selectedDocumentName];
+    if (pdfUrl) {
+        // Descargamos el PDF como .docx (nota: esto es un PDF disfrazado de Word)
+        // Para una conversión real, se necesitaría una biblioteca de servidor como libreoffice o python-docx
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = selectedDocumentName + '.docx';
+        link.click();
+    } else {
+        alert('No se puede descargar este documento');
+    }
 }
 
 function uploadChanges() {
