@@ -421,7 +421,8 @@ main {
     padding: 2rem;
 }
 
-#loginContainer {
+#loginContainer,
+#registerContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1071,12 +1072,14 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding-top: 2rem;
 }
 
 .documentActionsVertical {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-top: 2rem;
 }
 
 .actionBtn {
@@ -1096,11 +1099,11 @@ main {
 }
 
 .btnPDF {
-    background-color: #ff9999;
+    background-color: #cc6666;
 }
 
 .btnWord {
-    background-color: #99ccff;
+    background-color: #6699cc;
 }
 
 .btnUpload {
@@ -1108,11 +1111,15 @@ main {
 }
 
 .btnDelete {
-    background-color: #cc99ff;
+    background-color: #9966cc;
 }
 
 .btnAccess {
-    background-color: #ffcc99;
+    background-color: #cc9966;
+}
+
+.btnFullscreen {
+    background-color: #66b3b3;
 }
 
 .changelogDropdown {
@@ -1185,8 +1192,6 @@ main {
     color: #666;
     margin-top: 0.25rem;
     font-size: 0.8rem;
-}
-
 }
 
 .changeEntry:last-child {
@@ -1303,4 +1308,766 @@ main {
     max-width: 100%;
     max-height: 100%;
     border-radius: 4px;
+}
+
+/* ===== Additional Utility Classes ===== */
+
+/* Navbar Right Alignment */
+.navUserRight {
+    margin-left: auto;
+}
+
+/* Locked Document Cards */
+.dashboardRelative {
+    position: relative;
+}
+
+.docCardLocked {
+    position: relative;
+    opacity: 0.6;
+}
+
+.lockOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    cursor: not-allowed;
+}
+
+.lockIcon {
+    width: 48px;
+    height: 48px;
+    filter: brightness(0) invert(1);
+}
+
+/* Button Variants */
+.noAccessBtn {
+    margin-top: 1rem;
+}
+
+.changePasswordBtn {
+    padding: 0.5rem 1rem;
+    background: #38659b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.changePasswordBtn:hover {
+    background-color: #2d5073;
+}
+
+.clearFiltersBtn {
+    background-color: #999;
+}
+
+.clearFiltersBtn:hover {
+    background-color: #888;
+}
+
+/* Profile Value Display */
+.profileValue {
+    color: #666;
+    font-weight: 400;
+}
+
+/* Settings Item as Article */
+article.settingItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+article.settingItem:last-child {
+    margin-bottom: 0;
+}
+
+/* Filter Option as Label */
+label.filterOption {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+label.filterOption input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+label.filterOption span {
+    flex: 1;
+    color: #333;
+}
+
+/* Profile Field as Paragraph */
+p.profileField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+p.profileField:last-child {
+    border-bottom: none;
+}
+
+p.profileField label {
+    font-weight: 600;
+    color: #555;
+}
+
+/* Setting Label as Span */
+span.settingLabel {
+    flex: 1;
+}
+
+span.settingLabel h4 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+span.settingLabel p {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* Changelog Elements as Semantic Tags */
+header.dropdownHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+time.changeDate {
+    font-size: 0.85rem;
+    color: #999;
+    font-weight: 600;
+}
+
+/* Footer Element in Cards */
+footer.docMeta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode nav, body.dark-mode .navbar {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode main {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .mainPage {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode #loginContainer,
+body.dark-mode #registerContainer {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.dark-mode #loginForm h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .authForm {
+    color: #ffffff;
+}
+
+body.dark-mode .formGroup label {
+    color: #cccccc;
+}
+
+body.dark-mode .formGroup input {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+body.dark-mode .formGroup input:focus {
+    border-color: #6699cc;
+}
+
+body.dark-mode .submitBtn {
+    background-color: #38659b;
+}
+
+body.dark-mode footer, body.dark-mode .footer {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.dark-mode .mainContent {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .welcomeSection h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .welcomeSection p {
+    color: #cccccc;
+}
+
+body.dark-mode .dashboard {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .docCard {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+body.dark-mode .docCard h3 {
+    color: #6699cc;
+}
+
+body.dark-mode .docCard p {
+    color: #999999;
+}
+
+body.dark-mode .docCard .docMeta {
+    color: #666666;
+}
+
+body.dark-mode .searchContainer input {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+body.dark-mode .searchContainer button {
+    background-color: #38659b;
+}
+
+body.dark-mode .filterPanel {
+    background: rgba(0,0,0,0.8);
+}
+
+body.dark-mode .filterContent {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.dark-mode .profileContainer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .profileCard {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+body.dark-mode .settingsContainer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .settingsCard {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+body.dark-mode .documentContainer {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .documentContent {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .documentViewer {
+    background-color: #2a2a2a;
+    border-color: #444444;
+}
+
+body.dark-mode .documentNameSection h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .changelogDropdown {
+    background-color: #2a2a2a;
+    border-color: #444444;
+}
+
+body.dark-mode .dropdownHeader {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body.dark-mode .changeEntry {
+    border-left-color: #6699cc;
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .changeEntry .changeDate {
+    color: #666666;
+}
+
+body.dark-mode .changeEntry .changeAuthor {
+    color: #6699cc;
+}
+
+body.dark-mode .changeEntry .changeMessage {
+    color: #999999;
+}
+
+body.dark-mode .noAccessMessage {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.dark-mode .noAccessMessage h3 {
+    color: #6699cc;
+}
+
+body.dark-mode .toggleSwitch {
+    background-color: #555555;
+    border-color: #666666;
+}
+
+body.dark-mode .toggleSwitch.active {
+    background-color: #38659b;
+}
+
+body.dark-mode .profileValue {
+    color: #999999;
+}
+
+body.dark-mode label.filterOption span {
+    color: #cccccc;
+}
+
+body.dark-mode p.profileField {
+    border-bottom-color: #444444;
+}
+
+body.dark-mode p.profileField label {
+    color: #cccccc;
+}
+
+body.dark-mode span.settingLabel h4 {
+    color: #ffffff;
+}
+
+body.dark-mode span.settingLabel p {
+    color: #999999;
+}
+
+body.dark-mode header.dropdownHeader {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body.dark-mode time.changeDate {
+    color: #666666;
+}
+
+body.dark-mode footer.docMeta {
+    color: #666666;
+}
+
+body.dark-mode .changePasswordBtn {
+    background-color: #38659b;
+}
+
+body.dark-mode .changePasswordBtn:hover {
+    background-color: #2d5073;
+}
+
+/* ===== MEJORAS ESTÉTICAS MODERNAS ===== */
+
+/* Animaciones suaves globales */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Mejora del Navbar con gradiente sutil */
+nav, .navbar {
+    background: linear-gradient(135deg, #38659b 0%, #2d5073 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Rankbadge con animación */
+.rankBadge {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.rankBadge:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Mejora de las Cards con hover effect más elegante */
+.docCard {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.docCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(56, 101, 155, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: rgba(56, 101, 155, 0.2);
+}
+
+.docCard h3 {
+    transition: color 0.3s ease;
+}
+
+.docCard:hover h3 {
+    color: #2d5073;
+}
+
+/* Botones mejorados con efectos modernos */
+button, .submitBtn, .authOptionBtn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button::before, .submitBtn::before, .authOptionBtn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before, .submitBtn:hover::before, .authOptionBtn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Mejora de inputs con focus elegante */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #38659b;
+    box-shadow: 0 0 0 3px rgba(56, 101, 155, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome section con animación de entrada */
+.welcomeSection {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dashboard con animación escalonada de cards */
+.dashboard {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.docCard {
+    animation: slideInUp 0.5s ease-out backwards;
+}
+
+.docCard:nth-child(1) { animation-delay: 0.1s; }
+.docCard:nth-child(2) { animation-delay: 0.2s; }
+.docCard:nth-child(3) { animation-delay: 0.3s; }
+.docCard:nth-child(4) { animation-delay: 0.4s; }
+.docCard:nth-child(5) { animation-delay: 0.5s; }
+.docCard:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mejora del menú de usuario con glassmorphism */
+.userMenu, menu.userMenu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.05);
+    animation: dropdownSlide 0.3s ease-out;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.userMenu a.userMenuItem {
+    position: relative;
+}
+
+.userMenu a.userMenuItem::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(135deg, #38659b 0%, #2d5073 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.userMenu a.userMenuItem:hover::before {
+    transform: scaleY(1);
+}
+
+/* Mejora de los botones de acción del documento */
+.actionBtn {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actionBtn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.actionBtn:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.actionBtn:active {
+    transform: scale(0.95);
+}
+
+/* Search container mejorada */
+.searchContainer input {
+    transition: all 0.3s ease;
+}
+
+.searchContainer input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 101, 155, 0.15);
+}
+
+/* Toggle switch con animación mejorada */
+span.toggleSwitch, .toggleSwitch {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+span.toggleSwitch.active, .toggleSwitch.active {
+    box-shadow: 0 2px 4px rgba(56, 101, 155, 0.3);
+}
+
+span.toggleSwitch::after, .toggleSwitch::after {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile y Settings cards con sombra mejorada */
+.profileCard, .settingsCard {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.profileCard:hover, .settingsCard:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Document viewer con sombra interna */
+.documentViewer {
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Changelog dropdown con transición suave */
+.changeLog {
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.changeEntry {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.changeEntry::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #38659b 0%, #6699cc 100%);
+    transition: left 0.3s ease;
+}
+
+.changeEntry:hover {
+    transform: translateX(4px);
+    background-color: rgba(56, 101, 155, 0.05);
+}
+
+.changeEntry:hover::before {
+    left: 0;
+}
+
+/* Logo con animación de pulse sutil */
+#logoSection img {
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Filter panel mejorado */
+.filterPanel {
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.filterContent {
+    animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Smooth scroll para toda la página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading state para imágenes */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+    opacity: 0;
+}
+
+/* Mejora de links con subrayado animado */
+a:not(.navUser):not(.userMenuItem):not(.docCard):not(.authOptionBtn):not(.submitBtn) {
+    position: relative;
+}
+
+a:not(.navUser):not(.userMenuItem):not(.docCard):not(.authOptionBtn):not(.submitBtn)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+a:not(.navUser):not(.userMenuItem):not(.docCard):not(.authOptionBtn):not(.submitBtn):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Mejora responsive - ocultar animaciones en dispositivos móviles para mejor performance */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mejora de contraste en dark mode */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+body.dark-mode nav, body.dark-mode .navbar {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+body.dark-mode .docCard:hover {
+    box-shadow: 0 12px 24px rgba(102, 153, 204, 0.2), 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-color: rgba(102, 153, 204, 0.3);
+}
+
+body.dark-mode .userMenu, body.dark-mode menu.userMenu {
+    background: rgba(42, 42, 42, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
 }

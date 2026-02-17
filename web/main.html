@@ -8,21 +8,18 @@
 </head>
 <body>
     <nav>
-        <a onclick="showSearch(); return false;" href="#" class="navSearch">
-            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
-            <input id="nav_search_extension" type="search" placeholder="Buscar...">
-        </a>
-        <a onclick="toggleUserMenu(); return false;" href="#" class="navUser" id="navUserButton">
+        <span></span>
+        <a onclick="toggleUserMenu(); return false;" href="#" class="navUser navUserRight" id="navUserButton">
             <section class="navRank">
                 <span class="rankBadge" id="userRank">Miembro</span>
-                <div class="rankSeparator"></div>
+                <span class="rankSeparator"></span>
             </section>
             <img src="svg/user_icon.svg" class="userButton" alt="Usuario">
-            <div class="userMenu" id="userMenu">
-                <a href="profile.html" class="userMenuItem">Perfil</a>
-                <a href="settings.html" class="userMenuItem">Ajustes</a>
-                <a href="index.html" class="userMenuItem">Cerrar sesión</a>
-            </div>
+            <menu id="userMenu" class="userMenu">
+                <li><a href="profile.html" class="userMenuItem">Perfil</a></li>
+                <li><a href="settings.html" class="userMenuItem">Ajustes</a></li>
+                <li><a href="index.html" class="userMenuItem">Cerrar sesión</a></li>
+            </menu>
         </a>
     </nav>
 
@@ -38,7 +35,7 @@
                 <input type="search" id="search" name="query" placeholder="Busca un documento...">
                 <button type="submit">Buscar</button>
                 <button type="button" id="filterBtn" class="filterBtn">Filtros</button>
-                <button type="button" id="clearFiltersBtn" class="filterBtn" onclick="clearAllFilters()" style="background-color: #999;">Limpiar filtros</button>
+                <button type="button" id="clearFiltersBtn" class="filterBtn clearFiltersBtn" onclick="clearAllFilters()">Limpiar filtros</button>
             </form>
         </section>
 
@@ -65,17 +62,17 @@
         </section>
 
         <section id="filterPanel" class="filterPanel">
-            <div class="filterContent">
+            <section class="filterContent">
                 <h3>Filtros</h3>
-                <div class="filterOption">
+                <label class="filterOption">
                     <input type="checkbox" id="filter-filtro1" name="filter" value="filtro1">
-                    <label for="filter-filtro1">Documentos Oficiales</label>
-                </div>
-                <div class="filterButtons">
+                    <span>Documentos Oficiales</span>
+                </label>
+                <footer class="filterButtons">
                     <button class="applyBtn" onclick="applyFilters()">Aplicar</button>
                     <button class="closeBtn" onclick="closeFilters()">Cerrar</button>
-                </div>
-            </div>
+                </footer>
+            </section>
         </section>
     </main>
 

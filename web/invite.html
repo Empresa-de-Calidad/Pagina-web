@@ -8,11 +8,8 @@
 </head>
 <body>
     <nav>
-        <a onclick="showSearch(); return false;" href="#" class="navSearch">
-            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
-            <input id="nav_search_extension" type="search" placeholder="Buscar...">
-        </a>
-        <a href="index.html" id="loginLink" class="navUser loginLink" style="margin-left: auto;">
+        <span></span>
+        <a href="index.html" id="loginLink" class="navUser loginLink">
             <span>Iniciar sesión</span>
         </a>
     </nav>
@@ -24,48 +21,48 @@
             <p>Algunos documentos están disponibles para invitados</p>
         </section>
 
-        <section class="dashboard" style="position: relative;">
-            <article class="docCard" style="position: relative; opacity: 0.6;">
-                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px; cursor: not-allowed;">
-                    <img src="svg/block_icon.svg" alt="Bloqueado" style="width: 48px; height: 48px; filter: brightness(0) invert(1);">
-                </div>
+        <section class="dashboard dashboardRelative">
+            <article class="docCard docCardLocked">
+                <span class="lockOverlay">
+                    <img src="svg/block_icon.svg" alt="Bloqueado" class="lockIcon">
+                </span>
                 <h3>Documento 1</h3>
                 <p>Descripción del documento</p>
-                <div class="docMeta">
+                <footer class="docMeta">
                     <span>Autor desconocido</span>
                     <span>N/A</span>
-                </div>
+                </footer>
             </article>
 
-            <article class="docCard" style="position: relative; opacity: 0.6;">
-                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px; cursor: not-allowed;">
-                    <img src="svg/block_icon.svg" alt="Bloqueado" style="width: 48px; height: 48px; filter: brightness(0) invert(1);">
-                </div>
+            <article class="docCard docCardLocked">
+                <span class="lockOverlay">
+                    <img src="svg/block_icon.svg" alt="Bloqueado" class="lockIcon">
+                </span>
                 <h3>Documento 2</h3>
                 <p>Descripción del documento</p>
-                <div class="docMeta">
+                <footer class="docMeta">
                     <span>Autor desconocido</span>
                     <span>N/A</span>
-                </div>
+                </footer>
             </article>
 
-            <article class="docCard" style="position: relative; opacity: 0.6;">
-                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px; cursor: not-allowed;">
-                    <img src="svg/block_icon.svg" alt="Bloqueado" style="width: 48px; height: 48px; filter: brightness(0) invert(1);">
-                </div>
+            <article class="docCard docCardLocked">
+                <span class="lockOverlay">
+                    <img src="svg/block_icon.svg" alt="Bloqueado" class="lockIcon">
+                </span>
                 <h3>Documento 3</h3>
                 <p>Descripción del documento</p>
-                <div class="docMeta">
+                <footer class="docMeta">
                     <span>Autor desconocido</span>
                     <span>N/A</span>
-                </div>
+                </footer>
             </article>
         </section>
 
         <section id="noAccessSection" class="noAccessMessage">
             <h3>Inicia sesión para acceder</h3>
             <p>Para acceder a los documentos bloqueados y funcionalidades completas, por favor inicia sesión con tu cuenta.</p>
-            <a href="index.html" class="authOptionBtn" style="margin-top: 1rem;">Iniciar Sesión</a>
+            <a href="index.html" class="authOptionBtn noAccessBtn">Iniciar Sesión</a>
         </section>
     </main>
 

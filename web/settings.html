@@ -8,14 +8,11 @@
 </head>
 <body>
     <nav id="mainNav" class="navbar">
-        <a id="navSearchBtn" onclick="showSearch(); return false;" href="#" class="navSearch">
-            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
-            <input id="nav_search_extension" type="search" placeholder="Buscar...">
-        </a>
-        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser">
+        <span></span>
+        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser navUserRight">
             <section class="navRank">
                 <span class="rankBadge" id="userRank">Miembro</span>
-                <div class="rankSeparator"></div>
+                <span class="rankSeparator"></span>
             </section>
             <img src="svg/user_icon.svg" class="userButton" alt="Usuario">
             <menu id="userMenu" class="userMenu">
@@ -36,48 +33,48 @@
         <section class="settingsCard">
             <section class="settingSection">
                 <h3>Preferencias de Visualización</h3>
-                <div class="settingItem">
-                    <div class="settingLabel">
+                <article class="settingItem">
+                    <span class="settingLabel">
                         <h4>Tema oscuro</h4>
                         <p>Activa el tema oscuro para la interfaz</p>
-                    </div>
-                    <div class="toggleSwitch" onclick="toggleSwitch(this)"></div>
-                </div>
-                <div class="settingItem">
-                    <div class="settingLabel">
+                    </span>
+                    <span class="toggleSwitch" onclick="toggleSwitch(this)"></span>
+                </article>
+                <article class="settingItem">
+                    <span class="settingLabel">
                         <h4>Notificaciones por email</h4>
                         <p>Recibe notificaciones de nuevos documentos</p>
-                    </div>
-                    <div class="toggleSwitch active" onclick="toggleSwitch(this)"></div>
-                </div>
+                    </span>
+                    <span class="toggleSwitch active" onclick="toggleSwitch(this)"></span>
+                </article>
             </section>
 
             <section class="settingSection">
                 <h3>Privacidad y Seguridad</h3>
-                <div class="settingItem">
-                    <div class="settingLabel">
+                <article class="settingItem">
+                    <span class="settingLabel">
                         <h4>Cambiar contraseña</h4>
                         <p>Actualiza tu contraseña regularmente</p>
-                    </div>
-                    <button style="padding: 0.5rem 1rem; background: #38659b; color: white; border: none; border-radius: 4px; cursor: pointer;">Cambiar</button>
-                </div>
-                <div class="settingItem">
-                    <div class="settingLabel">
+                    </span>
+                    <button class="changePasswordBtn">Cambiar</button>
+                </article>
+                <article class="settingItem">
+                    <span class="settingLabel">
                         <h4>Autenticación de dos factores</h4>
                         <p>Añade una capa extra de seguridad</p>
-                    </div>
-                    <div class="toggleSwitch" onclick="toggleSwitch(this)"></div>
-                </div>
+                    </span>
+                    <span class="toggleSwitch" onclick="toggleSwitch(this)"></span>
+                </article>
             </section>
 
             <section class="settingSection dangerZone">
                 <h3>Zona de Peligro</h3>
-                <div class="settingItem">
-                    <div class="settingLabel">
+                <article class="settingItem">
+                    <span class="settingLabel">
                         <h4>Eliminar cuenta</h4>
                         <p>Esta acción es irreversible</p>
-                    </div>
-                </div>
+                    </span>
+                </article>
                 <button class="deleteButton" onclick="confirmDelete()">Eliminar Cuenta</button>
             </section>
 
@@ -92,8 +89,41 @@
 
     <script src="js/script.js"></script>
     <script>
+        // Dark Mode Toggle
+        function initDarkMode() {
+            const darkModeSaved = localStorage.getItem('darkMode') === 'true';
+            if (darkModeSaved) {
+                document.body.classList.add('dark-mode');
+                const darkModeToggle = document.querySelector('.settingItem:first-child .toggleSwitch');
+                if (darkModeToggle) {
+                    darkModeToggle.classList.add('active');
+                }
+            }
+        }
+
         function toggleSwitch(element) {
             element.classList.toggle('active');
+            
+            // Check if this is the dark mode toggle
+            const settingItems = document.querySelectorAll('.settingItem');
+            let isDarkModeToggle = false;
+            
+            settingItems.forEach((item, index) => {
+                if (item.querySelector('.toggleSwitch') === element && index === 0) {
+                    isDarkModeToggle = true;
+                }
+            });
+            
+            if (isDarkModeToggle) {
+                const isDarkMode = element.classList.contains('active');
+                if (isDarkMode) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'false');
+                }
+            }
         }
 
         function saveSettings() {
@@ -106,6 +136,9 @@
                 window.location.href = 'index.html';
             }
         }
+
+        // Initialize dark mode on page load
+        document.addEventListener('DOMContentLoaded', initDarkMode);
     </script>
 </body>
 </html>

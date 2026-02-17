@@ -8,14 +8,11 @@
 </head>
 <body>
     <nav id="mainNav" class="navbar">
-        <a id="navSearchBtn" onclick="showSearch(); return false;" href="#" class="navSearch">
-            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
-            <input id="nav_search_extension" type="search" placeholder="Buscar...">
-        </a>
-        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser">
+        <span></span>
+        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser navUserRight">
             <section class="navRank">
                 <span class="rankBadge" id="userRank">Miembro</span>
-                <div class="rankSeparator"></div>
+                <span class="rankSeparator"></span>
             </section>
             <img src="svg/user_icon.svg" class="userButton" alt="Usuario">
             <menu id="userMenu" class="userMenu">
@@ -38,42 +35,42 @@
 
             <section class="profileSection">
                 <h3>Información Personal</h3>
-                <div class="profileField">
+                <p class="profileField">
                     <label>Nombre:</label>
-                    <value></value>
-                </div>
-                <div class="profileField">
+                    <data class="profileValue"></data>
+                </p>
+                <p class="profileField">
                     <label>Email:</label>
-                    <value></value>
-                </div>
-                <div class="profileField">
+                    <data class="profileValue"></data>
+                </p>
+                <p class="profileField">
                     <label>Teléfono:</label>
-                    <value></value>
-                </div>
-                <div class="profileField">
+                    <data class="profileValue"></data>
+                </p>
+                <p class="profileField">
                     <label>Departamento:</label>
-                    <value></value>
-                </div>
+                    <data class="profileValue"></data>
+                </p>
             </section>
 
             <section class="profileSection">
                 <h3>Rol</h3>
-                <div class="profileField">
+                <p class="profileField">
                     <label>Rol actual:</label>
-                    <value></value>
-                </div>
+                    <data class="profileValue"></data>
+                </p>
             </section>
 
             <section class="profileSection">
                 <h3>Actividad</h3>
-                <div class="profileField">
+                <p class="profileField">
                     <label>Último acceso:</label>
-                    <value></value>
-                </div>
-                <div class="profileField">
+                    <data class="profileValue"></data>
+                </p>
+                <p class="profileField">
                     <label>Documentos descargados:</label>
-                    <value></value>
-                </div>
+                    <data class="profileValue"></data>
+                </p>
             </section>
         </section>
     </main>

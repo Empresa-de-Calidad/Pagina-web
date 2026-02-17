@@ -8,14 +8,11 @@
 </head>
 <body>
     <nav id="mainNav" class="navbar">
-        <a id="navSearchBtn" onclick="showSearch(); return false;" href="#" class="navSearch">
-            <img src="svg/search_icon.svg" class="searchButton" alt="Buscar">
-            <input id="nav_search_extension" type="search" placeholder="Buscar...">
-        </a>
-        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser">
+        <span></span>
+        <a id="navUserBtn" onclick="toggleUserMenu(); return false;" href="#" class="navUser navUserRight">
             <section class="navRank">
                 <span class="rankBadge" id="userRank">Miembro</span>
-                <div class="rankSeparator"></div>
+                <span class="rankSeparator"></span>
             </section>
             <img src="svg/user_icon.svg" class="userButton" alt="Usuario">
             <menu id="userMenu" class="userMenu">
@@ -40,20 +37,20 @@
                 </section>
 
                 <section class="changelogDropdown">
-                    <div class="dropdownHeader" onclick="toggleChangelog()">
+                    <header class="dropdownHeader" onclick="toggleChangelog()">
                         Registro de cambios
                         <span class="dropdownIcon">▼</span>
-                    </div>
+                    </header>
                     <section id="changeLog" class="changeLog">
                         <article class="changeEntry">
-                            <div class="changeDate">02/02/2026</div>
-                            <div class="changeAuthor">Admin</div>
-                            <div class="changeMessage">Creación del documento</div>
+                            <time class="changeDate">02/02/2026</time>
+                            <span class="changeAuthor">Admin</span>
+                            <p class="changeMessage">Creación del documento</p>
                         </article>
                         <article class="changeEntry">
-                            <div class="changeDate">01/02/2026</div>
-                            <div class="changeAuthor">Usuario</div>
-                            <div class="changeMessage">Actualización de contenido</div>
+                            <time class="changeDate">01/02/2026</time>
+                            <span class="changeAuthor">Usuario</span>
+                            <p class="changeMessage">Actualización de contenido</p>
                         </article>
                     </section>
                 </section>
@@ -68,11 +65,9 @@
                     <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="100%">
                 </section>
 
-                <footer id="documentFooter" class="documentFooter">
-                    <button class="navButton" onclick="previousPage()">←</button>
-                    <span class="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
-                    <button class="navButton" onclick="nextPage()">→</button>
-                </footer>
+                <section id="documentControls" class="documentControls">
+                    <button class="actionBtn btnFullscreen" onclick="toggleFullscreen()">Pantalla Completa</button>
+                </section>
             </section>
         </section>
     </main>

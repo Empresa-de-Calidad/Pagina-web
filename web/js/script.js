@@ -13,6 +13,11 @@ function loadDefaultPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize dark mode if saved
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
     // Solo cargar página por defecto si NO estamos en index.html
     if (!window.location.pathname.includes('index.html')) {
         loadDefaultPage();
@@ -238,8 +243,8 @@ let selectedDocumentName = null;
 
 // Mapeo de nombres de documentos a rutas de PDF
 const documentMap = {
-    'PROYECTO EDUCATIVO DE CENTRO IES ÁNGEL SANZ BRIZ (Borrador)': './documents/PROYECTO%20EDUCATIVO%20DE%20CENTRO%20IES%20%C3%81NGEL%20SANZ%20BRIZ%20(Borrador).pdf',
-    'Reglamento de Régimen Interior': './documents/Reglamento%20de%20R%C3%A9gimen%20Interior.pdf'
+    'PROYECTO EDUCATIVO DE CENTRO IES ÁNGEL SANZ BRIZ (Borrador)': 'documents/PROYECTO EDUCATIVO DE CENTRO IES ÁNGEL SANZ BRIZ (Borrador).pdf',
+    'Reglamento de Régimen Interior': 'documents/Reglamento de Régimen Interior.pdf'
 };
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -358,6 +363,19 @@ function toggleChangelog() {
     if (changelog) {
         changelog.classList.toggle('open');
         icon.classList.toggle('open');
+    }
+}
+
+function toggleFullscreen() {
+    const viewer = document.getElementById('documentViewer');
+    if (!viewer) return;
+    
+    if (!document.fullscreenElement) {
+        viewer.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
     }
 }
 
