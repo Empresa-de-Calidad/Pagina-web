@@ -244,7 +244,8 @@ let selectedDocumentName = null;
 // Mapeo de nombres de documentos a rutas de PDF
 const documentMap = {
     'PROYECTO EDUCATIVO DE CENTRO IES ÁNGEL SANZ BRIZ (Borrador)': 'documents/PROYECTO EDUCATIVO DE CENTRO IES ÁNGEL SANZ BRIZ (Borrador).pdf',
-    'Reglamento de Régimen Interior': 'documents/Reglamento de Régimen Interior.pdf'
+    'Reglamento de Régimen Interior': 'documents/Reglamento de Régimen Interior.pdf',
+    'ANEXO III': 'documents/ANEXO III.pdf'
 };
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -327,19 +328,64 @@ function downloadWord() {
         alert('No hay documento seleccionado');
         return;
     }
-    // Por ahora, descargamos el PDF pero como archivo Word
-    // Una solución real requeriría convertir PDF a DOCX en el servidor
-    const pdfUrl = documentMap[selectedDocumentName];
-    if (pdfUrl) {
-        // Descargamos el PDF como .docx (nota: esto es un PDF disfrazado de Word)
-        // Para una conversión real, se necesitaría una biblioteca de servidor como libreoffice o python-docx
+    
+    // Mostrar mensaje de procesamiento
+    const originalText = event.target.textContent;
+    event.target.textContent = 'Convirtiendo...';
+    event.target.disabled = true;
+    
+    // Intentar conversión real usando backend PHP
+    fetch('api/convert-pdf-to-docx.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            documentName: selectedDocumentName
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            // Si el backend no está disponible, usar método alternativo
+            return response.json().then(err => {
+                throw new Error(err.error || 'Error en la conversión');
+            });
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Crear link de descarga
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = pdfUrl;
+        link.href = url;
         link.download = selectedDocumentName + '.docx';
+        document.body.appendChild(link);
         link.click();
-    } else {
-        alert('No se puede descargar este documento');
-    }
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+        
+        // Restaurar botón
+        event.target.textContent = originalText;
+        event.target.disabled = false;
+    })
+    .catch(error => {
+        console.error('Error en conversión:', error);
+        
+        // Fallback: descargar PDF como .docx (método antiguo)
+        alert('Conversión no disponible. Descargando PDF como alternativa.\\n\\nPara habilitar la conversión real, configure el servidor PHP con LibreOffice.\\n\\nError: ' + error.message);
+        
+        const pdfUrl = documentMap[selectedDocumentName];
+        if (pdfUrl) {
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = selectedDocumentName + '.docx';
+            link.click();
+        }
+        
+        // Restaurar botón
+        event.target.textContent = originalText;
+        event.target.disabled = false;
+    });
 }
 
 function uploadChanges() {

@@ -694,6 +694,8 @@ main {
     align-items: center;
     padding: 2rem;
     min-height: calc(100vh - 200px);
+    overflow-y: auto;
+    max-height: calc(100vh - 140px);
 }
 
 .profileHeader {
@@ -1239,7 +1241,6 @@ main {
 .documentViewer {
     flex: 1;
     width: 100%;
-    max-width: 800px;
     background: white;
     border: 1px solid #ddd;
     border-radius: 4px;
